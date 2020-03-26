@@ -6,10 +6,11 @@
 
 <style>
 
-div#root {
+body, div#root {
   background-color: var(--bg);
   color: var(--color);
   transition: background-color 300ms, color 500ms;
+  min-height: 100%;
 }
 
 :root {
@@ -17,6 +18,8 @@ div#root {
   --color: #121212;
   --card-bg: #ffffff;
   --card-color: #121212;
+  --hover-color: whitesmoke;
+  --autocomplete-border: 1px solid #747171;
 }
 
 
@@ -25,13 +28,17 @@ div#root {
   --color: #121212;
   --card-bg: #ffffff;
   --card-color: #121212;
+  --hover-color: whitesmoke;
+  --autocomplete-border: 1px solid #747171;
 }
 
 .dark {
   --bg: #121212;
   --color: #ffffff;
-  --card-bg: #4f4f4f;
+  --card-bg: #727070;
   --card-color: #ffffff;
+  --hover-color: #7b7a7a;
+  --autocomplete-border: none
 }
 
 html {
@@ -44,6 +51,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  height: 100%;
 }
 
 *,
@@ -53,32 +61,4 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
 </style>
