@@ -3,26 +3,27 @@
     <header>
       <h1 class="header">Covid-19 Updates</h1>
     </header>
-    <!-- <div class="columns">
+    <div class="columns">
       <div class="column card">
         <div class="card-content">
-          <p class="title">{{res.cases.toLocaleString()}}</p>
+          <p class="title">{{res.cases && res.cases.toLocaleString()}}</p>
           <p class="subtitle">Cases</p>
         </div>
       </div>
       <div class="column card">
         <div class="card-content">
-          <p class="title">{{res.deaths.toLocaleString()}}</p>
+          <p class="title">{{res.deaths && res.deaths.toLocaleString()}}</p>
           <p class="subtitle">Deaths</p>
         </div>
       </div>
       <div class="column card">
         <div class="card-content">
-          <p class="title">{{res.recovered.toLocaleString()}}</p>
+          <p class="title">{{res.recovered && res.recovered.toLocaleString()}}</p>
           <p class="subtitle">Recovered</p>
         </div>
       </div>
-    </div> -->
+    </div>
+    <div class="table-container">
       <table class="table is-fullwidth is-bordered">
         <thead>
           <tr>
@@ -36,6 +37,7 @@
             <th>Active</th>
             <th>Critical</th>
             <th>Cases/1Million</th>
+            <th>Deaths/1Million</th>
           </tr>
         </thead>
         <tbody>
@@ -49,10 +51,12 @@
             <td :class="{'current-country': country.countryInfo.iso2 === userCountry}">{{country.recovered.toLocaleString()}}</td>
             <td :class="{'current-country': country.countryInfo.iso2 === userCountry}">{{country.active.toLocaleString()}}</td>
             <td :class="{'current-country': country.countryInfo.iso2 === userCountry}">{{country.critical.toLocaleString()}}</td>
-            <td :class="{'current-country': country.countryInfo.iso2 === userCountry}">{{country.casesPerOneMillion.toLocaleString()}}</td>
+            <td :class="{'current-country': country.countryInfo.iso2 === userCountry}">{{country.casesPerOneMillion && country.casesPerOneMillion.toLocaleString()}}</td>
+            <td :class="{'current-country': country.countryInfo.iso2 === userCountry}">{{country.deathsPerOneMillion && country.deathsPerOneMillion.toLocaleString()}}</td>
           </tr>
         </tbody>
       </table>
+    </div>
     </div>
 </template>
 
@@ -68,9 +72,9 @@ export default {
     }
   },
   async asyncData() {
-    // const res = await axios.get('https://corona.lmao.ninja/all').then(resp => {
-    //   return resp.data;
-    // });
+    const res = await axios.get('https://corona.lmao.ninja/all').then(resp => {
+      return resp.data;
+    });
     const countries = await axios.get('https://corona.lmao.ninja/countries').then(resp => {
       return resp.data;
     });
@@ -79,7 +83,7 @@ export default {
       return resp.data.countryCode;
     });
 
-    return { countries, userCountry };
+    return { res, countries, userCountry };
     
   }
 }
