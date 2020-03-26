@@ -125,6 +125,8 @@ export default {
 
 .table td, .table th {
   vertical-align: middle;
+  background-color: var(--card-bg);
+  color: var(--card-color);
 }
 header {
   margin-bottom: 30px;
@@ -164,7 +166,7 @@ header {
   border-bottom: 1px solid #ccc;
 }
 .death {
-  background-color: red;
+  background-color: red !important;
   color: white;
 }
 .cases-today {
