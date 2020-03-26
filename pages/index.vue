@@ -3,7 +3,7 @@
     <header>
       <h1 class="header">Covid-19 Updates</h1>
     </header>
-    <div class="columns">
+    <!-- <div class="columns">
       <div class="column card">
         <div class="card-content">
           <p class="title">{{res.cases.toLocaleString()}}</p>
@@ -22,7 +22,7 @@
           <p class="subtitle">Recovered</p>
         </div>
       </div>
-    </div>
+    </div> -->
       <table class="table is-fullwidth is-bordered">
         <thead>
           <tr>
@@ -68,9 +68,9 @@ export default {
     }
   },
   async asyncData() {
-    const res = await axios.get('https://corona.lmao.ninja/all').then(resp => {
-      return resp.data;
-    });
+    // const res = await axios.get('https://corona.lmao.ninja/all').then(resp => {
+    //   return resp.data;
+    // });
     const countries = await axios.get('https://corona.lmao.ninja/countries').then(resp => {
       return resp.data;
     });
@@ -79,7 +79,7 @@ export default {
       return resp.data.countryCode;
     });
 
-    return { res, countries, userCountry };
+    return { countries, userCountry };
     
   }
 }
