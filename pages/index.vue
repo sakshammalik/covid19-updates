@@ -2,6 +2,7 @@
   <div class="container">
     <header>
       <h1 class="header">Covid-19 Updates</h1>
+      <span class="dark-mode-btn" @click="switchMode">Switch to {{switchTo}} Mode</span>
     </header>
     <div class="columns">
       <div class="column card">
@@ -68,7 +69,9 @@ export default {
     return {
       res: {},
       countries: [],
-      userCountry: ''
+      userCountry: '',
+      switchTo: 'Dark',
+      isDark: false
     }
   },
   async asyncData() {
@@ -85,25 +88,67 @@ export default {
 
     return { res, countries, userCountry };
     
+  },
+  beforeMount() {
+    this.initialSwitchMode();
+  },
+  methods: {
+    switchMode() {
+      const elem = document.getElementById('root');
+      if (this.isDark) {
+        this.switchTo = 'Dark';
+        this.isDark = false;
+        elem.classList.replace('dark', 'light');
+      } else {
+        this.switchTo = 'Light';
+        this.isDark = true;
+        elem.classList.replace('light', 'dark');
+      }
+      localStorage.setItem('isDark', this.isDark);
+      localStorage.setItem('switchTo', this.switchTo);
+    },
+    initialSwitchMode() {
+      this.isDark = JSON.parse(localStorage.getItem('isDark'));
+      const elem = document.getElementById('root');
+      if (this.isDark) {
+        this.switchTo = 'Light';
+        elem.classList.replace('light', 'dark');
+      } else if (this.isDark !== null && !this.isDark) {
+        this.switchTo = 'Dark';
+      }
+    }
   }
 }
 </script>
 
 <style scoped>
+
 .table td, .table th {
   vertical-align: middle;
 }
 header {
   margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 .header {
   font-size: 3rem;
+}
+.dark-mode-btn {
+  margin: 0 30px 0;
+  cursor: pointer;
 }
 .card {
   font-size: 2rem;
   display: flex;
   flex-direction: column;
   margin: 10px;
+  border-radius: 4px;
+  background-color: var(--card-bg);
+  color: var(--card-color);
+  transition: opacity 300ms, background-color 500ms;
 }
  .flag {
    width: 50px;
@@ -129,5 +174,15 @@ header {
 .current-country {
   background-color: #ccc;
 }
+
+.title {
+  color: var(--card-color);
+  transition: color 500ms;
+}
+.subtitle {
+  color: var(--card-color);
+  transition: color 500ms;
+}
+
 
 </style>

@@ -1,10 +1,39 @@
 <template>
-  <div>
+  <div id="root" class="light">
     <nuxt />
   </div>
 </template>
 
 <style>
+
+div#root {
+  background-color: var(--bg);
+  color: var(--color);
+  transition: background-color 300ms, color 500ms;
+}
+
+:root {
+  --bg: #ffffff;
+  --color: #121212;
+  --card-bg: #ffffff;
+  --card-color: #121212;
+}
+
+
+.light {
+  --bg: #ffffff;
+  --color: #121212;
+  --card-bg: #ffffff;
+  --card-color: #121212;
+}
+
+.dark {
+  --bg: #121212;
+  --color: #ffffff;
+  --card-bg: #4f4f4f;
+  --card-color: #ffffff;
+}
+
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
