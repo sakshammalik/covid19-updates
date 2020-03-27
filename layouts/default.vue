@@ -24,10 +24,6 @@ body, div#root {
   min-height: 100%;
 }
 
-.dp-flex {
-  display: flex;
-}
-
 :root {
   --bg: #ffffff;
   --color: #121212;

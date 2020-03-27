@@ -102,4 +102,7 @@ export default {
   margin: 0 30px 0;
   cursor: pointer;
 }
+.dp-flex {
+  display: flex !important;
+}
 </style>
