@@ -5,7 +5,7 @@
   "author": "Saksham Malik",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt --port 3333",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -16,8 +16,10 @@
     "@nuxtjs/bulma": "^1.2.1",
     "@nuxtjs/pwa": "^3.0.0-0",
     "chart.js": "^2.9.3",
+    "d3": "^5.15.0",
     "nuxt": "^2.0.0",
-    "vue-chartjs": "^3.5.0"
+    "vue-chartjs": "^3.5.0",
+    "vue2-frappe": "^1.0.29"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",

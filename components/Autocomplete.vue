@@ -41,7 +41,7 @@ export default {
     computed: {
       matches() {
         return this.suggestions.filter((str) => {
-            return str.indexOf(this.value) >= 0;
+            return str.toLowerCase().indexOf(this.value.toLowerCase()) >= 0;
         });
       },
       openSuggestion() {

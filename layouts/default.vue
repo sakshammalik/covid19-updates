@@ -1,8 +1,19 @@
 <template>
   <div id="root" class="light">
+    <Header />
     <nuxt />
   </div>
 </template>
+
+<script>
+import Header from "@/components/Header";
+
+export default {
+  components: {
+    Header
+  }
+}
+</script>
 
 <style>
 
@@ -13,10 +24,15 @@ body, div#root {
   min-height: 100%;
 }
 
+.dp-flex {
+  display: flex;
+}
+
 :root {
   --bg: #ffffff;
   --color: #121212;
   --card-bg: #ffffff;
+  --table-bg: #ffffff;
   --card-color: #121212;
   --hover-color: whitesmoke;
   --autocomplete-border: 1px solid #747171;
@@ -27,6 +43,7 @@ body, div#root {
   --bg: #ffffff;
   --color: #121212;
   --card-bg: #ffffff;
+  --table-bg: #ffffff;
   --card-color: #121212;
   --hover-color: whitesmoke;
   --autocomplete-border: 1px solid #747171;
@@ -36,6 +53,7 @@ body, div#root {
   --bg: #121212;
   --color: #ffffff;
   --card-bg: #727070;
+  --table-bg: #3e3d3d;
   --card-color: #ffffff;
   --hover-color: #7b7a7a;
   --autocomplete-border: none
